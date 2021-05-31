@@ -1,3 +1,3 @@
 # Hiragana-Test
 
-Another website I made to help me in learning japanese :3
+A website I've made to help me in learning japanese :3
