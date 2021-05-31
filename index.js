@@ -18,7 +18,7 @@ var hiraganaCharacters = {
     'ご' : 'go',
 
     'さ' : 'sa',
-    'し' : 'si',
+    'し' : 'shi',
     'す' : 'su',
     'せ' : 'se',
     'そ' : 'so',
