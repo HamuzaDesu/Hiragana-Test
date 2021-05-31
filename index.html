@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiragana Test</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="screen">
+        <div class="container">
+            <h1>Hiragana Test</h1>
+    
+            <div id="hiraganaCharContainer"></div>
+
+            <div id="incorrect" class="incorrect">Incorrect</div>
+
+            <div class="form">
+                <form name='hiragana' class="hiraganaForm" onSubmit="return false;">
+                    <div>
+                        <input type="text" name="userHiragana" id="hiraganaInput" autofocus='autofocus' autocomplete="off" spellcheck="false">
+                    </div>
+                    <div>
+                        <button type="submit">Submit Answer</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
