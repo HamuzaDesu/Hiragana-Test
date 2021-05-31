@@ -88,7 +88,7 @@ var hiraganaCharacters = {
 
     'ん' : 'n'
 }
-var getRandhiraganaChar = function(){
+var getRandHiraganaChar = function(){
     hiraganaArray = Object.keys(hiraganaCharacters)
     var randomIndex = Math.floor(Math.random() * hiraganaArray.length)
     var randomChar = hiraganaArray[randomIndex]
@@ -102,14 +102,18 @@ var resetIncorrect = function(){
     document.getElementById('incorrect').innerHTML = 'Incorrect'
 }
 
-var displayRandomCharacter = function(){
-    var randomCharacterContainer = document.getElementById('hiraganaCharContainer')
+var displayCharacter = function(hiraganaCharacterToDisplay){
+    randomCharacterContainer = document.getElementById('hiraganaCharContainer')
 
     randomCharacterContainer.innerHTML = ""
     resetTextField()
     resetIncorrect()
     
-    randomCharacterContainer.innerHTML += `${getRandhiraganaChar()}`
+    randomCharacterContainer.innerHTML += `${hiraganaCharacterToDisplay}`
+}
+
+var displayRandomCharacter = function(){
+    displayCharacter(getRandHiraganaChar())
 }    
 
 document.addEventListener('load', displayRandomCharacter())
@@ -118,24 +122,32 @@ document.hiragana.onsubmit = () => {
     // console.log('form submitted')
     resetIncorrect()
 
-    var userCharInput = document.hiragana.userHiragana.value
+    var romajiInput = document.hiragana.userHiragana.value
 
-    if(userCharInput === ''){
+    if(romajiInput === ''){
         
     }
     else{
         var displayedHiraganaChar = document.getElementById('hiraganaCharContainer').innerHTML
-        var correctChar = hiraganaCharacters[displayedHiraganaChar]
+        var correctRomaji = hiraganaCharacters[displayedHiraganaChar]
         
-        if(userCharInput === correctChar){
+        if(romajiInput === correctRomaji){
             displayRandomCharacter()
         }
         else{
             document.getElementById('incorrect').style.opacity = 1
-            document.getElementById('incorrect').innerHTML += `. Correct answer: ${correctChar}`
+            document.getElementById('incorrect').innerHTML += `. Correct answer: ${correctRomaji}`
             resetTextField()
         }
     }
 
     return false
+}
+
+var displaySpecificCharacter = function(characterToDisplay){
+    for(var item in hiraganaCharacters){
+        if(hiraganaCharacters[item] === characterToDisplay){
+            displayCharacter(item)
+        }
+    }
 }
